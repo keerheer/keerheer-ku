@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        var message = prompt("请输入一个数字：");
+        console.log("你输入的信息是： "+message);
+        while(isNaN(message))
+        {
+            var message = prompt("你未输入正确的数字，请重新输入：");
+            console.log("你输入的信息是： "+message);
+        }
+        alert("你输入的数字平方后为： "+message*message);
+
+    </script> -->
+    <script>
+        var arr = [1, [2, 3], 4, [5, [6, [7, 8]]],[9, 10]];
+res = []; //用来存储返回的数据
+
+function fun1(arr) {
+  //code
+  var res = [];
+  arr.map(item=>{
+      if(Array.isArray(item)){
+          res=res.concat(fun1(item));
+      }
+      else
+      {
+          res.push(item);
+      }
+  });
+  return res;
+}
+fun1(arr);
+res = fun1(arr);
+console.log(res); //[1,2,3,4,5,6,7,8,9,10];
+    </script>
+    <script>
+        var arr=[{name:'xiaoming',age:18},{name:'zhangsan',age:34},
+         {name:'lisi',age:29},{name:'wangwu',age:24}];
+function sortby(key , way = true){//way为true表示默认按照升序排列
+  //code
+  if(way == undefined)
+  way = true;
+  else{
+    way = (way) ? 1 : -1;
+  }
+
+  return function(a,b){
+      a= a[key];
+      b= b[key];
+      if(a<b){
+        if(way==-1)
+            return 1;
+        else
+            return -1;           
+      }
+      if(a>b){ 
+          if(way ==-1)
+          return -1;
+          else
+          return 1;
+      }
+      return 0;
+  }
+}
+console.log(arr.sort(sortby('age'))) //[{name: "xiaoming", age: 18},{name: "wangwu", age: 24},{name: "lisi", age: 29},{name: "zhangsan", age: 34}]
+console.log(arr.sort(sortby('name',false))) //[{name: "zhangsan", age: 34},{name: "xiaoming", age: 18},{name: "wangwu", age: 24},{name: "lisi", age: 29}]
+
+//因为浏览器console.log输出引用的原因，测试的时候可以将另一句不用的console语句注释起来，避免对测试结果产生影响
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
