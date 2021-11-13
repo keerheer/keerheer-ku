@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+var arr=[1,2,3,3,4,'a','a','b','c'];
+function reduce(arr){
+  var res=[];
+  //coder
+  for(var i=0;i<arr.length;i++){
+      for(var j=i+1;j<arr.length;j++){
+        if(arr[i]==arr[j]){
+            arr.splice(j,1);
+            j--;
+        }
+      }
+      res[i]=arr[i];
+  }
+  return res;
+}
+console.log(reduce(arr));  //[1, 2, 3, 4, "a", "b", "c"]
+   </script>
+   <script>
+       var arr=[1,5,4,8,2,6,3,9,7];
+
+function mySort(arr){
+  	//code
+      arr.sort(function(a,b){return a-b});
+    return arr;
+}
+console.log(mySort(arr)); //[1,2,3,4,5,6,7,8,9]
+   </script>
+   <script>
+var arr1=[1,3,5,7,9];
+var arr2=[2,4,6,8,10];
+
+function merge(arr1,arr2){
+    var arr = arr1.concat(arr2);
+arr.sort(function(a,b){return a-b});
+return arr;
+  //code
+}
+console.log(merge(arr1,arr2));//[1,2,3,4,5,6,7,8,9,10]
+   </script>
+</head>
+<body>
+    
+</body>
+</html>
