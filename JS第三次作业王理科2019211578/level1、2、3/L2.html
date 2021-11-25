@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+		<style>
+      	li {
+        	color:dodgerblue;
+        }
+		</style>
+</head>
+<body>
+    <ul id="change">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script>
+        var col1 = document.getElementById("change");
+        var col2 = col1.getElementsByTagName("li");
+        for(var i=0;i<col2.length;i++){
+            col2[i].addEventListener('click',output,false);
+            if(i%2 == 0){
+                col2[i].style.color = "red";
+            }
+            else{
+                col2[i].style.color = "green";
+            }
+        }
+        function output(e){
+            var x=e.target;
+            alert(x.innerHTML);
+        }
+
+    </script>
+</body>
+</html>
